@@ -146,7 +146,7 @@ function mp_ecommerce_previews_include_files(){
 		/**
 		 * Audio metabox for mp_ecommerce_previews
 		 */
-		require( MP_ECOMMERCE_PREVIEWS_PLUGIN_DIR . 'includes/metaboxes/audio/audio.php' );
+		require( MP_ECOMMERCE_PREVIEWS_PLUGIN_DIR . 'includes/metaboxes/media-player/media-player.php' );
 
 		/**
 		 * Enqueue Scripts

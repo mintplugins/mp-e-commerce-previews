@@ -10,7 +10,7 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 	 */
 	$mp_ecommerce_previews_audio_add_meta_box = array(
 		'metabox_id' 		=> 'mp_ecommerce_previews_audio_metabox', 
-		'metabox_title' 	=> __( 'Audio Preview', 'mp_ecommerce_previews'), 
+		'metabox_title' 	=> __( 'Media Player Preview', 'mp_ecommerce_previews'), 
 		'metabox_posttype' 	=> 'download', 
 		'metabox_context' 	=> 'advanced', 
 		'metabox_priority' 	=> 'low' 
@@ -27,7 +27,7 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 					'field_description' 	=> 'Enter the title of this media',
 					'field_type' 	=> 'textbox',
 					'field_value' => '',
-					'field_repeater' => 'preview_audio'
+					'field_repeater' => 'preview_media_player'
 				),
 				array(
 					'field_id'			=> 'artist',
@@ -35,7 +35,16 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 					'field_description' 	=> 'Enter the Artist\'s name of this media',
 					'field_type' 	=> 'textbox',
 					'field_value' => '',
-					'field_repeater' => 'preview_audio'
+					'field_repeater' => 'preview_media_player'
+				),
+				array(
+					'field_id'			=> 'filetype',
+					'field_title' 	=> __( 'Filetype', 'mp_player'),
+					'field_description' 	=> 'Select the Filetype',
+					'field_type' 	=> 'select',
+					'field_value' => '',
+					'field_select_values' => array( 'audio' => 'AUDIO', 'video' => 'Video' ),
+					'field_repeater' => 'preview_media_player'
 				),
 				array(
 					'field_id'			=> 'poster',
@@ -43,7 +52,7 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 					'field_description' 	=> 'Upload a Poster for this Video',
 					'field_type' 	=> 'mediaupload',
 					'field_value' => '',
-					'field_repeater' => 'preview_audio'
+					'field_repeater' => 'preview_media_player'
 				),
 				array(
 					'field_id'			=> 'mp3',
@@ -51,7 +60,7 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 					'field_description' 	=> 'Insert your media\'s MP3 file here (Optional)',
 					'field_type' 	=> 'mediaupload',
 					'field_value' => '',
-					'field_repeater' => 'preview_audio'
+					'field_repeater' => 'preview_media_player'
 				),
 				array(
 					'field_id'			=> 'ogv',
@@ -59,7 +68,7 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 					'field_description' 	=> 'Insert your media\'s OGG/OGV file here (Optional)',
 					'field_type' 	=> 'mediaupload',
 					'field_value' => '',
-					'field_repeater' => 'preview_audio'
+					'field_repeater' => 'preview_media_player'
 				),
 				array(
 					'field_id'			=> 'm4v',
@@ -67,7 +76,7 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 					'field_description' 	=> 'Insert your media\'s MP4/M4V file here (Optional)',
 					'field_type' 	=> 'mediaupload',
 					'field_value' => '',
-					'field_repeater' => 'preview_audio'
+					'field_repeater' => 'preview_media_player'
 				),
 				array(
 					'field_id'			=> 'webmv',
@@ -75,7 +84,7 @@ function mp_ecommerce_previews_audio_create_meta_box(){
 					'field_description' 	=> 'Insert your media\'s WEBM file here (Optional)',
 					'field_type' 	=> 'mediaupload',
 					'field_value' => '',
-					'field_repeater' => 'preview_audio'
+					'field_repeater' => 'preview_media_player'
 				),
 	);
 	

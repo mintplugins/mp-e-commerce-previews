@@ -154,21 +154,21 @@ add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_image_filter',
  * @param  	 array $args See link for description.
  * @return   void
  */
-function mp_ecommerce_preview_audio_filter( $preview_output, $preview_type, $post_id ){
+function mp_ecommerce_preview_media_player_filter( $preview_output, $preview_type, $post_id ){
 		
 	//If this stack media type is set to be text	
-	if ($preview_type == 'audio'){
+	if ($preview_type == 'media_player'){
 		
 		//Set default value for $new_preview_output to NULL
 		$new_preview_output = NULL;
 		
 		//Get video URL
-		$preview_audio_string = get_post_meta($post_id, 'preview_audio', true);
+		$preview_media_player_string = get_post_meta($post_id, 'preview_media_player', true);
 		
 		//Preview output
-		if (!empty($preview_audio_string)){
+		if (!empty($preview_media_player_string)){
 			
-			$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container">' . mp_player( $post_id, 'preview_audio' ) . '</div>'; 
+			$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container">' . mp_player( $post_id, 'preview_media_player' ) . '</div>'; 
 			
 		}
 		
@@ -181,4 +181,4 @@ function mp_ecommerce_preview_audio_filter( $preview_output, $preview_type, $pos
 	return $preview_output;
 	
 }
-add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_audio_filter', 10, 3 );
+add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_media_player_filter', 10, 3 );

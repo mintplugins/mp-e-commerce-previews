@@ -27,7 +27,7 @@ function mp_ecommerce_previews_media_create_meta_box(){
 			'field_description' => 'Select the media type to use for this download\'s preview.',
 			'field_type' => 'select',
 			'field_value' => '',
-			'field_select_values' => array('none' => 'None', 'image' => 'Image', 'video' => 'Video', 'audio' => 'Audio')
+			'field_select_values' => array('none' => 'None', 'image' => 'Image', 'video' => 'Video', 'audio' => 'Audio', 'media_player' => 'Media Player')
 		),
 	);
 	
