@@ -22,9 +22,9 @@
  if (!function_exists('edd_previews_update')){
 	function edd_previews_update() {
 		$args = array(
-			'software_name' => 'EDD Previews', //<- The exact name of this Plugin. Make sure it matches the title in your edd_previews, edd, and the WP.org stacks
+			'software_name' => 'MP E-Commerce Previews', //<- The exact name of this Plugin. Make sure it matches the title in your edd_previews, edd, and the WP.org stacks
 			'software_api_url' => 'http://moveplugins.com',//The URL where EDD and edd_previews are installed and checked
-			'software_filename' => 'edd-previews.php',
+			'software_filename' => 'mp-e-commerce-previews.php',
 			'software_licensed' => false, //<-Boolean
 		);
 		
