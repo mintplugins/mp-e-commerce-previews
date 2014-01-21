@@ -1,0 +1,7 @@
+.mp-eccomerce-previews-popup{
+	position:absolute;
+	width:400px;
+	background-color:#000000;
+	z-index:999999999999999999;	
+	visibility:hidden;
+}

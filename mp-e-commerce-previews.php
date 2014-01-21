@@ -3,7 +3,7 @@
 Plugin Name: MP E-Commerce Previews
 Plugin URI: http://moveplugins.com
 Description: Easily show previews of the content for sale
-Version: beta1.0.0.2
+Version: beta1.0.0.3
 Author: Move Plugins
 Author URI: http://moveplugins.com
 Text Domain: mp_ecommerce_previews
