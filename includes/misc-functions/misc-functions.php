@@ -29,9 +29,10 @@ function mp_ecommerce_preview_ajax_popup_callback() {
 	//Get mp_ecommerce_preview_data
 	echo mp_ecommerce_preview( $post_id );
 		
-	die();
+	exit;
 }
 add_action( 'wp_ajax_mp_ecommerce_preview_ajax_popup', 'mp_ecommerce_preview_ajax_popup_callback' );
+add_action( 'wp_ajax_nopriv_mp_ecommerce_preview_ajax_popup', 'mp_ecommerce_preview_ajax_popup_callback' );
 
 /**
  * Allow video file types in edd uploads
