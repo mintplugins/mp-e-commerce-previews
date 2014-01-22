@@ -50,16 +50,16 @@ add_filter( 'the_content', 'mp_ecommerce_preview_content_hook' );
  * @param  	 array $args See link for description.
  * @return   void
  */
-function mp_ecommerce_preview( $post_id ){
+function mp_ecommerce_preview( $post_id, $options_array = NULL ){
 	
 	//Get Preview Type
-	$preview_type = get_post_meta($post_id, 'preview_media_type_1', true);
+	$options_array['preview_type'] = get_post_meta($post_id, 'preview_media_type_1', true);
 	
 	//Set default for preview output
 	$preview_output = NULL;
 	
 	//Get the right preview output that is hooked here
-	$preview_output = apply_filters( 'mp_ecommerce_preview_output', $preview_output, $preview_type, $post_id );
+	$preview_output = apply_filters( 'mp_ecommerce_preview_output', $preview_output, $options_array, $post_id );
 			
 	// Add preview to the beginning of content output
 	return $preview_output;
@@ -75,10 +75,10 @@ function mp_ecommerce_preview( $post_id ){
  * @param  	 array $args See link for description.
  * @return   void
  */
-function mp_ecommerce_preview_video_filter( $preview_output, $preview_type, $post_id ){
+function mp_ecommerce_preview_video_filter( $preview_output, $options_array, $post_id ){
 
 	//If this stack media type is set to be text	
-	if ($preview_type == 'video'){
+	if ($options_array['preview_type'] == 'video'){
 		
 		//Set default value for $new_preview_output to NULL
 		$new_preview_output = NULL;
@@ -110,14 +110,13 @@ add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_video_filter',
  * @since    1.0.0
  * @link     http://moveplugins.com/doc/
  * @see      get_post_meta()
- * @see      mp_core_oembed_get()
  * @param  	 array $args See link for description.
  * @return   void
  */
-function mp_ecommerce_preview_image_filter( $preview_output, $preview_type, $post_id ){
+function mp_ecommerce_preview_image_filter( $preview_output, $options_array, $post_id ){
 		
 	//If this stack media type is set to be text	
-	if ($preview_type == 'image'){
+	if ($options_array['preview_type'] == 'image'){
 		
 		//Set default value for $new_preview_output to NULL
 		$new_preview_output = NULL;
@@ -154,10 +153,10 @@ add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_image_filter',
  * @param  	 array $args See link for description.
  * @return   void
  */
-function mp_ecommerce_preview_media_player_filter( $preview_output, $preview_type, $post_id ){
+function mp_ecommerce_preview_media_player_filter( $preview_output, $options_array, $post_id ){
 		
 	//If this stack media type is set to be text	
-	if ($preview_type == 'media_player'){
+	if ($options_array['preview_type'] == 'media_player'){
 		
 		//Set default value for $new_preview_output to NULL
 		$new_preview_output = NULL;
@@ -168,7 +167,15 @@ function mp_ecommerce_preview_media_player_filter( $preview_output, $preview_typ
 		//Preview output
 		if (!empty($preview_media_player_string)){
 			
-			$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container">' . mp_player( $post_id, 'preview_media_player' ) . '</div>'; 
+			if ( isset( $options_array['popup'] )){
+				
+				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container">' . mp_player( $post_id, 'preview_media_player', array('autoPlay' => 1) ) . '</div>'; 
+			}
+			else{
+				
+				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container">' . mp_player( $post_id, 'preview_media_player' ) . '</div>'; 
+			}
+			
 			
 		}
 		

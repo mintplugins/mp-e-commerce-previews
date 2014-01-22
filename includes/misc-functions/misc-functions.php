@@ -25,9 +25,12 @@ function mp_ecommerce_preview_ajax_popup_callback() {
 	
 	//Get Post id
 	$post_id = intval( $_POST['post_id'] );
-		
+	
+	//Set autoplay in options array to true
+	$options_array['popup'] = true;
+	
 	//Get mp_ecommerce_preview_data
-	echo mp_ecommerce_preview( $post_id );
+	echo mp_ecommerce_preview( $post_id, $options_array );
 		
 	exit;
 }
