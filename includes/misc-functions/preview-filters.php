@@ -89,7 +89,7 @@ function mp_ecommerce_preview_video_filter( $preview_output, $options_array, $po
 		//Preview output
 		if (!empty($preview_video_url)){
 			
-			$new_preview_output .= '<div class="mp-ecommerce-preview-video-container">' . mp_core_oembed_get( $preview_video_url, NULL, NULL ) . '</div>'; 
+			$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-video-container">' . mp_core_oembed_get( $preview_video_url, NULL, NULL ) . '</div>'; 
 			
 		}
 		
