@@ -3,6 +3,18 @@
 	width:400px;
 	z-index:999999999999999999;	
 	visibility:hidden;
+	opacity:0;
+	
+	-webkit-transition: opacity .2s ease-in-out, width .2s ease-in-out;
+	-moz-transition: opacity .2s ease-in-out, width .2s ease-in-out;
+	-ms-transition: opacity .2s ease-in-out, width .2s ease-in-out;
+	-o-transition: opacity .2s ease-in-out, width .2s ease-in-out;
+	transition: opacity .2s ease-in-out, width .2s ease-in-out;
+	
+}
+.mp-eccomerce-previews-loading{
+	position:absolute;
+	z-index:999999999999999999;	
 }
 .archive .mp-ecommerce-preview{
 	margin:0px;

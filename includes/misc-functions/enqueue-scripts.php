@@ -24,5 +24,6 @@ function mp_ecommerce_previews_frontend_enqueue(){
 		
 		//front end css
 		wp_enqueue_style( 'mp_ecommerce_previews_style', plugins_url('css/mp-ecommerce-previews-style.css', dirname(__FILE__)) );
+						
 }
 add_action( 'wp_enqueue_scripts', 'mp_ecommerce_previews_frontend_enqueue' );
