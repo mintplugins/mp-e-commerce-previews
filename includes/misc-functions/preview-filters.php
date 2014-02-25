@@ -169,11 +169,11 @@ function mp_ecommerce_preview_media_player_filter( $preview_output, $options_arr
 			
 			if ( isset( $options_array['popup'] )){
 				
-				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container">' . mp_player( $post_id, 'preview_media_player', array('autoPlay' => 1) ) . '</div>'; 
+				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-media-player-container">' . mp_player( $post_id, 'preview_media_player', array('autoPlay' => 1) ) . '</div>'; 
 			}
 			else{
 				
-				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container">' . mp_player( $post_id, 'preview_media_player' ) . '</div>'; 
+				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-media-player-container">' . mp_player( $post_id, 'preview_media_player' ) . '</div>'; 
 			}
 			
 			

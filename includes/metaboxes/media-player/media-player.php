@@ -27,6 +27,7 @@ function mp_ecommerce_previews_media_player_create_meta_box(){
 					'field_description' 	=> 'Select the Filetype',
 					'field_type' 	=> 'select',
 					'field_value' => '',
+					'field_required' => true,
 					'field_select_values' => array( 'audio' => 'Audio', 'video' => 'Video' ),
 					'field_repeater' => 'preview_media_player'
 				),
@@ -34,6 +35,7 @@ function mp_ecommerce_previews_media_player_create_meta_box(){
 					'field_id'			=> 'title',
 					'field_title' 	=> __( 'Media\'s Title', 'mp_player'),
 					'field_description' 	=> 'Enter the title of this media',
+					'field_required' => true,
 					'field_type' 	=> 'textbox',
 					'field_value' => '',
 					'field_repeater' => 'preview_media_player'
