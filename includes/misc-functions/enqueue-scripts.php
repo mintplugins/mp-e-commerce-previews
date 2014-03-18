@@ -26,7 +26,6 @@ function mp_ecommerce_previews_frontend_enqueue(){
 		wp_localize_script( 'mp_ecommerce_previews_ajax_popup', 'mp_ecommerce_previews_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));   
 		
 		//front end css
-		wp_enqueue_style( 'mp_ecommerce_previews_style', plugins_url('css/mp-ecommerce-previews-style.css', dirname(__FILE__)), array('fontawesome') );
-						
+		wp_enqueue_style( 'mp_ecommerce_previews_style', plugins_url('css/mp-ecommerce-previews-style.css', dirname(__FILE__)), array('fontawesome') );				
 }
 add_action( 'wp_enqueue_scripts', 'mp_ecommerce_previews_frontend_enqueue' );

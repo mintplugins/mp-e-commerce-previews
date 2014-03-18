@@ -55,11 +55,24 @@ function mp_ecommerce_preview( $post_id, $options_array = NULL ){
 	//Get Preview Type
 	$options_array['preview_type'] = get_post_meta($post_id, 'preview_media_type_1', true);
 	
-	//Set default for preview output
-	$preview_output = NULL;
+	//Set opening for mp ecommerce previeq
+	$preview_output = '<div class="mp-ecommerce-preview">';
+		
+		//Allow for child themes/plugins to hook content before - like watermarks
+		$preview_output .= apply_filters( 'mp_ecommerce_preview_output_before', '', $options_array, $post_id );
+		
+			$preview_output .= '<div class="mp-ecommerce-preview-container mp-ecommerce-preview-' . $options_array['preview_type'] . '-container">';
+				
+				//Get the right preview output that is hooked here
+				$preview_output .= apply_filters( 'mp_ecommerce_preview_output', '', $options_array, $post_id );
+				
+			$preview_output .= '</div>';
+		
+		//Allow for child themes/plugins to hook content after - like watermarks
+		$preview_output .= apply_filters( 'mp_ecommerce_preview_output_after', '', $options_array, $post_id );
 	
-	//Get the right preview output that is hooked here
-	$preview_output = apply_filters( 'mp_ecommerce_preview_output', $preview_output, $options_array, $post_id );
+	//Set closing
+	$preview_output .= '</div>';
 			
 	// Add preview to the beginning of content output
 	return $preview_output;
@@ -89,7 +102,7 @@ function mp_ecommerce_preview_video_filter( $preview_output, $options_array, $po
 		//Preview output
 		if (!empty($preview_video_url)){
 			
-			$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-video-container">' . mp_core_oembed_get( $preview_video_url, NULL, NULL ) . '</div>'; 
+			$new_preview_output .= mp_core_oembed_get( $preview_video_url, NULL, NULL ); 
 			
 		}
 		
@@ -127,7 +140,7 @@ function mp_ecommerce_preview_image_filter( $preview_output, $options_array, $po
 		//Preview output
 		if (!empty($preview_image_url)){
 			
-			$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-image-container"><img class="mp-ecommerce-preview-image" src="' . $preview_image_url . '" title="' . the_title_attribute( array( 'echo' => false ) ) . '" /></div>'; 
+			$new_preview_output .= '<img class="mp-ecommerce-preview-image" src="' . $preview_image_url . '" title="' . the_title_attribute( array( 'echo' => false ) ) . '" />'; 
 			
 			
 		}
@@ -169,11 +182,11 @@ function mp_ecommerce_preview_media_player_filter( $preview_output, $options_arr
 			
 			if ( isset( $options_array['popup'] )){
 				
-				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-media-player-container">' . mp_player( $post_id, 'preview_media_player', array('autoPlay' => 1) ) . '</div>'; 
+				$new_preview_output .= mp_player( $post_id, 'preview_media_player', array('autoPlay' => 1) ); 
 			}
 			else{
 				
-				$new_preview_output .= '<div class="mp-ecommerce-preview mp-ecommerce-preview-media-player-container">' . mp_player( $post_id, 'preview_media_player' ) . '</div>'; 
+				$new_preview_output .= mp_player( $post_id, 'preview_media_player' ); 
 			}
 			
 			

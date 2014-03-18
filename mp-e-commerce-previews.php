@@ -3,7 +3,7 @@
 Plugin Name: MP E-Commerce Previews
 Plugin URI: http://moveplugins.com
 Description: Easily show previews of the content for sale
-Version: beta1.0.0.9
+Version: beta1.0.1.0
 Author: Move Plugins
 Author URI: http://moveplugins.com
 Text Domain: mp_ecommerce_previews
@@ -144,10 +144,15 @@ function mp_ecommerce_previews_include_files(){
 		require( MP_ECOMMERCE_PREVIEWS_PLUGIN_DIR . 'includes/metaboxes/video/video.php' );
 		
 		/**
-		 * Audio metabox for mp_ecommerce_previews
+		 * Media Player metabox for mp_ecommerce_previews
 		 */
 		require( MP_ECOMMERCE_PREVIEWS_PLUGIN_DIR . 'includes/metaboxes/media-player/media-player.php' );
-
+		
+		/**
+		 * Youtube Player Metabox for mp_ecommerce_previews
+		 */
+		require( MP_ECOMMERCE_PREVIEWS_PLUGIN_DIR . 'includes/metaboxes/youtube-player/youtube-player.php' );
+		
 		/**
 		 * Enqueue Scripts
 		 */
@@ -162,6 +167,13 @@ function mp_ecommerce_previews_include_files(){
 		 * Preview Filters
 		 */
 		require( MP_ECOMMERCE_PREVIEWS_PLUGIN_DIR . 'includes/misc-functions/preview-filters.php' );
+		
+		/**
+		 * Video Skinner Media Preview
+		 */
+		require( MP_ECOMMERCE_PREVIEWS_PLUGIN_DIR . 'includes/misc-functions/mp_video_skinner_hooks.php' );
+		
+		
 	
 	}
 }

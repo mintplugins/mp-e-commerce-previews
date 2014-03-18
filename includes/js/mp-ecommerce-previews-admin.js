@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
 		var id = id[0];
 		
 		//Call function which resets filetypes for Media Player
-		reset_media_player_filetypes(id, $(this))
+		//reset_media_player_filetypes(id, $(this))
 		
 	});
 	
@@ -52,7 +52,7 @@ jQuery(document).ready(function($){
 		var id = id[0];
 		
 		//Call function which resets filetypes for Media Player
-		reset_media_player_filetypes(id, $(this));
+		//reset_media_player_filetypes(id, $(this));
 	});
 	
 	//Reset filetypes shown for Media Player
