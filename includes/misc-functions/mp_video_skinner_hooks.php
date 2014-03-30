@@ -27,23 +27,16 @@ function mp_ecommerce_preview_youtube_player_filter( $preview_output, $options_a
 	//If this preview media type is set to be youtube player	
 	if ($options_array['preview_type'] == 'youtube_player'){
 		
-		if ( isset( $options_array['popup'] )){
-			
-			//Set autoplay for wpecpv
-			add_filter( 'mp_video_skinner_youtube_autoplay', function (){ return true; } );
-		
-		}
-
 		//Get video URL
 		$youtube_video_code = get_post_meta($post_id, 'preview_youtube_video', true);
 		
 		if ( isset( $options_array['popup'] )){
 			
-			$preview_output = mp_video_skinner( $youtube_video_code, 'simpleflat', array( 'autoplay' => 1 ) );
+			$preview_output = mp_video_skinner( $youtube_video_code, 'simpleflat', array( 'autoplay' => apply_filters( 'mp_ecommerce_previews_video_skinner_popup_autoplay', 1 ) ) );
 			
 		}
 		else{
-			$preview_output = mp_video_skinner( $youtube_video_code, 'simpleflat', array( 'autoplay' => 0 ) );
+			$preview_output = mp_video_skinner( $youtube_video_code, 'simpleflat', array( 'autoplay' => apply_filters( 'mp_ecommerce_previews_video_skinner_autoplay', 0 ) ) );
 		}
 			
 	}

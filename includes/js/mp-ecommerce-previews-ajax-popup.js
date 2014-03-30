@@ -4,7 +4,7 @@ jQuery(document).ready(function($){
 	
 	var positionofpopup_loop;
 	
-	$( '.archive article, .mp-ecommerce-previews-related article' ).bind('mp_ecpv_ajax_popup', function() {
+	$( '.archive article, .mp-ecommerce-previews-related article, .search-results article' ).bind('mp_ecpv_ajax_popup', function() {
 			
 		$(this).prepend('<div class="mp-eccomerce-previews-loading fa-spin"></div>');
 				
@@ -72,8 +72,8 @@ jQuery(document).ready(function($){
 						popup_width = popup.children().width();			
 						popup_height = popup.height();	
 						
-						//If we are on at least loop #3 - position the popup						
-						if (loop_counter > 3){	
+						//If we are on at least loop #5 - position the popup						
+						if (loop_counter > 5){	
 																															
 							//Find appropriate X Pos
 							//If there is enough space to the right 
@@ -150,7 +150,7 @@ jQuery(document).ready(function($){
 	});
 	
 	var timeout;
-    $('.archive article, .mp-ecommerce-previews-related article').mouseenter(function(e) {
+    $('.archive article, .mp-ecommerce-previews-related article, .search-results article').mouseenter(function(e) {
 		
         var self = this;
         clearTimeout(timeout);
@@ -158,7 +158,7 @@ jQuery(document).ready(function($){
             $(self).trigger('mp_ecpv_ajax_popup')
         }, 1);
     });
-    $('.archive article, .mp-ecommerce-previews-related article').mouseleave(function() {		
+    $('.archive article, .mp-ecommerce-previews-related article, .search-results article').mouseleave(function() {		
 
 		clearTimeout(timeout);
 		
