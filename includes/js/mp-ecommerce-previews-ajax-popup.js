@@ -6,6 +6,9 @@ jQuery(document).ready(function($){
 	
 	$( '.archive article, .mp-ecommerce-previews-related article, .search-results article' ).bind('mp_ecpv_ajax_popup', function() {
 			
+		//Set the z-index of this parent to be higher than it's friends around it for the time being while the popup is active
+		$(this).css('z-index', '999999' );
+			
 		$(this).prepend('<div class="mp-eccomerce-previews-loading fa-spin"></div>');
 				
 		var thisdiv = $(this);
@@ -163,6 +166,9 @@ jQuery(document).ready(function($){
 		clearTimeout(timeout);
 		
 		clearInterval(positionofpopup_loop);
+		
+		//Remove the z-index we added to this archive element
+		$(this).css('z-index', '' );
 		
         if (mp_ecpv_request) {
             mp_ecpv_request.abort();

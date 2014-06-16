@@ -7,7 +7,7 @@
  * @package    MP E-Commerce Previews
  * @subpackage Functions
  *
- * @copyright  Copyright (c) 2013, Move Plugins
+ * @copyright  Copyright (c) 2014, Mint Plugins
  * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author     Philip Johnston
  */
@@ -16,7 +16,7 @@
  * Hook Previews to output for download posts
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      get_post_meta()
  * @see      mp_core_oembed_get()
  * @param  	 array $args See link for description.
@@ -44,7 +44,7 @@ add_filter( 'the_content', 'mp_ecommerce_preview_content_hook' );
  * return EDD Preview Output
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      get_post_meta()
  * @see      mp_core_oembed_get()
  * @param  	 array $args See link for description.
@@ -53,10 +53,20 @@ add_filter( 'the_content', 'mp_ecommerce_preview_content_hook' );
 function mp_ecommerce_preview( $post_id, $options_array = NULL ){
 	
 	//Get Preview Type
-	$options_array['preview_type'] = get_post_meta($post_id, 'preview_media_type_1', true);
+	$options_array['preview_type'] = apply_filters( 'mp_ecommerce_preview_type', get_post_meta($post_id, 'preview_media_type_1', true), $post_id );
 	
-	//Set opening for mp ecommerce previeq
-	$preview_output = '<div class="mp-ecommerce-preview">';
+	//Get the right preview output that is hooked here
+	$mp_ecommerce_preview_output = apply_filters( 'mp_ecommerce_preview_output', '', $options_array, $post_id );
+	
+	if ( empty( $mp_ecommerce_preview_output ) ){
+		return;	
+	}
+	
+	//Get custom classes to use for the container
+	$custom_container_class = apply_filters('mp_ecommerce_preview_container_class', '', $post_id);
+	
+	//Set opening for mp ecommerce preview
+	$preview_output = '<div class="mp-ecommerce-preview ' . $custom_container_class . '">';
 		
 		//Allow for child themes/plugins to hook content before - like watermarks
 		$preview_output .= apply_filters( 'mp_ecommerce_preview_output_before', '', $options_array, $post_id );
@@ -64,7 +74,7 @@ function mp_ecommerce_preview( $post_id, $options_array = NULL ){
 			$preview_output .= '<div class="mp-ecommerce-preview-container mp-ecommerce-preview-' . $options_array['preview_type'] . '-container">';
 				
 				//Get the right preview output that is hooked here
-				$preview_output .= apply_filters( 'mp_ecommerce_preview_output', '', $options_array, $post_id );
+				$preview_output .= $mp_ecommerce_preview_output;
 				
 			$preview_output .= '</div>';
 		
@@ -82,7 +92,7 @@ function mp_ecommerce_preview( $post_id, $options_array = NULL ){
  * Show Video for Preview
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      get_post_meta()
  * @see      mp_core_oembed_get()
  * @param  	 array $args See link for description.
@@ -121,7 +131,7 @@ add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_video_filter',
  * Show Image for Preview
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      get_post_meta()
  * @param  	 array $args See link for description.
  * @return   void
@@ -160,7 +170,7 @@ add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_image_filter',
  * Show Audio for Preview
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      get_post_meta()
  * @see      mp_core_oembed_get()
  * @param  	 array $args See link for description.

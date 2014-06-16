@@ -1,6 +1,6 @@
 === MP Stacks ===
 Contributors: johnstonphilip
-Donate link: http://moveplugins.com/
+Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: beta1.0.0.0
 Tested up to: beta1.0.1.3
@@ -24,7 +24,7 @@ This section describes how to install the plugin and get it working.
 
 == Frequently Asked Questions ==
 
-See full instructions at http://moveplugins.com/doc/mp-stacks
+See full instructions at http://mintplugins.com/doc/mp-stacks
 
 == Screenshots ==
 

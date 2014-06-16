@@ -7,7 +7,7 @@
  * @package    EDD Previews
  * @subpackage Functions
  *
- * @copyright  Copyright (c) 2013, Move Plugins
+ * @copyright  Copyright (c) 2014, Mint Plugins
  * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author     Philip Johnston
  */
@@ -23,7 +23,7 @@
 	function edd_previews_update() {
 		$args = array(
 			'software_name' => 'MP E-Commerce Previews', //<- The exact name of this Plugin. Make sure it matches the title in your edd_previews, edd, and the WP.org stacks
-			'software_api_url' => 'http://moveplugins.com',//The URL where EDD and edd_previews are installed and checked
+			'software_api_url' => 'http://mintplugins.com',//The URL where EDD and edd_previews are installed and checked
 			'software_filename' => 'mp-e-commerce-previews.php',
 			'software_licensed' => false, //<-Boolean
 		);

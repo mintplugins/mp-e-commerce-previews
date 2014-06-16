@@ -7,7 +7,7 @@
  * @package    MP Ecommerce Previews
  * @subpackage Functions
  *
- * @copyright  Copyright (c) 2013, Move Plugins
+ * @copyright  Copyright (c) 2014, Mint Plugins
  * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author     Philip Johnston
  */
@@ -16,7 +16,7 @@
  * Ajax callback which displays the Ecommerce Preview
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      function_name()
  * @param  	 array $args See link for description.
  * @return   void
@@ -41,7 +41,7 @@ add_action( 'wp_ajax_nopriv_mp_ecommerce_preview_ajax_popup', 'mp_ecommerce_prev
  * Allow video file types in edd uploads
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      function_name()
  * @param  	 array $args See link for description.
  * @return   void

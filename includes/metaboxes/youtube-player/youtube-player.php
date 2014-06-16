@@ -52,7 +52,7 @@ add_action('plugins_loaded', 'mp_ecommerce_previews_youtube_player_create_meta_b
  * Add Youtube Player as a Preview Type to the dropdown
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @param    array $args See link for description.
  * @return   void
  */

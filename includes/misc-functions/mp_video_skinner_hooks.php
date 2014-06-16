@@ -7,7 +7,7 @@
  * @package    MP E-Commerce Previews
  * @subpackage Functions
  *
- * @copyright  Copyright (c) 2013, Move Plugins
+ * @copyright  Copyright (c) 2014, Mint Plugins
  * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @author     Philip Johnston
  */
@@ -16,7 +16,7 @@
  * Show Youtube Player for Preview
  *
  * @since    1.0.0
- * @link     http://moveplugins.com/doc/
+ * @link     http://mintplugins.com/doc/
  * @see      get_post_meta()
  * @see      mp_core_oembed_get()
  * @param  	 array $args See link for description.
