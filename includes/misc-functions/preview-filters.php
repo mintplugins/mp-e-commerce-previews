@@ -179,7 +179,7 @@ add_filter( 'mp_ecommerce_preview_output' , 'mp_ecommerce_preview_image_filter',
 function mp_ecommerce_preview_media_player_filter( $preview_output, $options_array, $post_id ){
 		
 	//If this stack media type is set to be text	
-	if ($options_array['preview_type'] == 'media_player'){
+	if ($options_array['preview_type'] == 'media_player' || empty($options_array['preview_type']) ){
 		
 		//Set default value for $new_preview_output to NULL
 		$new_preview_output = NULL;
