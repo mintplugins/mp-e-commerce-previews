@@ -4,7 +4,7 @@ jQuery(document).ready(function($){
 	
 	var positionofpopup_loop;
 	
-	$( '.archive article, .mp-ecommerce-previews-related article, .search article' ).bind('mp_ecpv_ajax_popup', function() {
+	$( document ).on('mp_ecpv_ajax_popup', '.archive article, .mp-ecommerce-previews-related article, .search article', function() {
 			
 		//Set the z-index of this parent to be higher than it's friends around it for the time being while the popup is active
 		$(this).css('z-index', '999999' );
@@ -153,7 +153,7 @@ jQuery(document).ready(function($){
 	});
 	
 	var timeout;
-    $('.archive article, .mp-ecommerce-previews-related article, .search article').mouseenter(function(e) {
+    $( document ).on('mouseenter', '.archive article, .mp-ecommerce-previews-related article, .search article', function(e) {
 		
         var self = this;
         clearTimeout(timeout);
@@ -161,7 +161,7 @@ jQuery(document).ready(function($){
             $(self).trigger('mp_ecpv_ajax_popup')
         }, 1);
     });
-    $('.archive article, .mp-ecommerce-previews-related article, .search article').mouseleave(function() {		
+    $(document).on('mouseleave', '.archive article, .mp-ecommerce-previews-related article, .search article', function() {		
 
 		clearTimeout(timeout);
 		

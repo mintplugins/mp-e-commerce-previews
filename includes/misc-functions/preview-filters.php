@@ -190,7 +190,7 @@ function mp_ecommerce_preview_media_player_filter( $preview_output, $options_arr
 		//Preview output
 		if (!empty($preview_media_player_string)){
 			
-			if ( isset( $options_array['popup'] )){
+			if ( isset( $options_array['popup'] ) || isset( $options_array['autoPlay'] )){
 				
 				$new_preview_output .= mp_player( $post_id, 'preview_media_player', array('autoPlay' => 1) ); 
 			}
