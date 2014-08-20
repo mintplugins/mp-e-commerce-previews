@@ -71,3 +71,20 @@ function mp_ecommerce_previews_edd_custom_modify_htaccess_rules( $rules, $method
 	return $rules;
 }
 add_filter( 'edd_protected_directory_htaccess_rules', 'mp_ecommerce_previews_edd_custom_modify_htaccess_rules', 10, 2 );
+
+//Add the popup element class to posts that should have it
+function mpecpv_add_popup_elem_class( $classes, $class, $ID ){
+	
+	$options_array['preview_type'] = apply_filters( 'mp_ecommerce_preview_type', get_post_meta($ID, 'preview_media_type_1', true), $post_id );
+	
+	//Get the preview output that is hooked here
+	$mp_ecommerce_preview_output = apply_filters( 'mp_ecommerce_preview_output', '', $options_array, $ID );
+	
+	//If there is something to pop up, add the popup class
+	if ( !empty($mp_ecommerce_preview_output) ){
+		$classes['mpecpv_popup_elem'] = 'mp-ecommerce-preview-popup-element';	
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'mpecpv_add_popup_elem_class', 10, 3 );

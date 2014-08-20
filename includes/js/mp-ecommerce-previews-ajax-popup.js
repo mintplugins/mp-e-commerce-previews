@@ -4,7 +4,7 @@ jQuery(document).ready(function($){
 	
 	var positionofpopup_loop;
 	
-	$( document ).on('mp_ecpv_ajax_popup', '.archive article, .mp-ecommerce-previews-related article, .search article', function() {
+	$( document ).on('mp_ecpv_ajax_popup', '.mp-ecommerce-preview-popup-element', function() {
 			
 		//Set the z-index of this parent to be higher than it's friends around it for the time being while the popup is active
 		$(this).css('z-index', '999999' );

@@ -3,7 +3,7 @@
 Plugin Name: MP E-Commerce Previews
 Plugin URI: http://mintplugins.com
 Description: Easily show previews of the content for sale
-Version: beta1.0.1.5
+Version: beta1.0.1.6
 Author: Mint Plugins
 Author URI: http://mintplugins.com
 Text Domain: mp_ecommerce_previews
