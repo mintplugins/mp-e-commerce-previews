@@ -38,6 +38,23 @@
 	max-height:400px;	
 	max-width:400px;	
 }
+.mp-eccomerce-previews-popup  .mp-ecommerce-preview{
+	opacity:0;	
+	z-index: 99999999;
+}
+.mp-eccomerce-previews-popup .mp-eccomerce-previews-popup-overlay{
+	z-index:99999991; 
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	bottom: 0px; 
+	right: 0px; 
+	display: block; 
+	overflow: hidden; 
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
 .mp-ecommerce-preview-image{
 	max-width:100%;
 	float:left;
