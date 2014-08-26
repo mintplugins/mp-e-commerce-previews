@@ -75,7 +75,7 @@ add_filter( 'edd_protected_directory_htaccess_rules', 'mp_ecommerce_previews_edd
 //Add the popup element class to posts that should have it
 function mpecpv_add_popup_elem_class( $classes, $class, $ID ){
 	
-	$options_array['preview_type'] = apply_filters( 'mp_ecommerce_preview_type', get_post_meta($ID, 'preview_media_type_1', true), $post_id );
+	$options_array['preview_type'] = apply_filters( 'mp_ecommerce_preview_type', get_post_meta($ID, 'preview_media_type_1', true), $ID );
 	
 	//Get the preview output that is hooked here
 	$mp_ecommerce_preview_output = apply_filters( 'mp_ecommerce_preview_output', '', $options_array, $ID );

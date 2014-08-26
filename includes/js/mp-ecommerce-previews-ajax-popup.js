@@ -14,7 +14,7 @@ jQuery(document).ready(function($){
 		var thisdiv = $(this);
 		
 		//Append the popup right away - but just showing a blown up version of what we rolledover
-		popup = $('<div class="mp-eccomerce-previews-popup" style="width:400px; display:inline-block;"><div class="mp-eccomerce-previews-popup-placeholder" style="width:400px; z-index:9999999; position:absolute; top:0; bottom:0px right:0px; left:0px; display:inline-block;">' + $(this).html() + '</div><div class="mp-eccomerce-previews-popup-overlay"><div class="mp-eccomerce-previews-popup-overlay-table"><div class="mp-eccomerce-previews-popup-overlay-table-cell" style="padding:15px; color:#fff; text-shadow: 1px 1px 2px #000;"><div class="mp-eccomerce-previews-loading fa-spin"></div></div></div></div></div>').prependTo(thisdiv);
+		popup = $('<div class="mp-eccomerce-previews-popup" style="width:400px; display:inline-block;"><div class="mp-eccomerce-previews-popup-placeholder" style="width:400px; z-index:9999999; position:absolute; top:0; bottom:0px right:0px; left:0px; display:inline-block;">' + $(this).html() + '</div><div class="mp-eccomerce-previews-popup-overlay"><div class="mp-eccomerce-previews-popup-overlay-table"><div class="mp-eccomerce-previews-popup-overlay-table-cell" style="padding-left:9px; color:#fff; text-shadow: 1px 1px 2px #000;"><div class="mp-eccomerce-previews-loading fa-spin"></div></div></div></div></div>').prependTo(thisdiv);
 		
 		var image_ratio = thisdiv.find('img:last-of-type').width() / thisdiv.find('img:last-of-type').height();
 		

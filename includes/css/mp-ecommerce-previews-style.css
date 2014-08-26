@@ -59,10 +59,9 @@
 	max-width:100%;
 	float:left;
 }
-
 .mp-eccomerce-previews-loading{
 	font-size:15px;
-	margin-left:10px;
+	margin-left:0px;
 }
 .mp-eccomerce-previews-loading:before{
 	content: "\f021";
