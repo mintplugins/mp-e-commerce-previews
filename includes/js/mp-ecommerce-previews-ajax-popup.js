@@ -14,7 +14,7 @@ jQuery(document).ready(function($){
 		var thisdiv = $(this);
 		
 		//Append the popup right away - but just showing a blown up version of what we rolledover
-		popup = $('<div class="mp-eccomerce-previews-popup" style="width:400px; display:inline-block;"><div class="mp-eccomerce-previews-popup-placeholder" style="width:400px; z-index:9999999; position:absolute; top:0; bottom:0px right:0px; left:0px; display:inline-block;">' + $(this).html() + '</div><div class="mp-eccomerce-previews-popup-overlay"><div class="mp-eccomerce-previews-popup-overlay-table"><div class="mp-eccomerce-previews-popup-overlay-table-cell" style="padding-left:9px; color:#fff; text-shadow: 1px 1px 2px #000;"><div class="mp-eccomerce-previews-loading fa-spin"></div></div></div></div></div>').prependTo(thisdiv);
+		popup = $('<div class="mp-eccomerce-previews-popup" style="width:400px; display:inline-block; opacity:0;"><div class="mp-eccomerce-previews-popup-placeholder" style="width:400px; z-index:9999999; position:absolute; top:0; bottom:0px right:0px; left:0px; display:inline-block;">' + $(this).html() + '</div><div class="mp-eccomerce-previews-popup-overlay"><div class="mp-eccomerce-previews-popup-overlay-table"><div class="mp-eccomerce-previews-popup-overlay-table-cell" style="padding-left:9px; color:#fff; text-shadow: 1px 1px 2px #000;"><div class="mp-eccomerce-previews-loading fa-spin"></div></div></div></div></div>').prependTo(thisdiv);
 		
 		var image_ratio = thisdiv.find('img:last-of-type').width() / thisdiv.find('img:last-of-type').height();
 		
@@ -43,6 +43,9 @@ jQuery(document).ready(function($){
 			//Clear loop after 20 times
 			if ( loop_counter > 20 ){
 				clearInterval(positionofpopup_loop);
+				popup.css({
+					opacity:1
+				});
 			}
 		
 			//Width of the popup
@@ -58,7 +61,9 @@ jQuery(document).ready(function($){
 			
 			//X Positions for the Article div
 			xpos_left_article = thisdiv_position.left;		
-			xpos_right_article = xpos_left_article + thisdiv.width();		
+			xpos_right_article = xpos_left_article + thisdiv.width();
+			
+			console.log(thisdiv.width());		
 			
 			//Y Positions for the Article div
 			ypos_top_article = thisdiv_position.top;		
@@ -82,7 +87,7 @@ jQuery(document).ready(function($){
 					popup.css({
 						left: thisdiv.width(),
 						visibility: 'visible',
-						opacity:1
+						//opacity:1
 					});
 					
 					
@@ -94,7 +99,7 @@ jQuery(document).ready(function($){
 					popup.css({
 						left: -popup_width,
 						visibility: 'visible',
-						opacity:1
+						//opacity:1
 					});
 				}
 				else{
@@ -102,7 +107,7 @@ jQuery(document).ready(function($){
 					popup.css({
 						left: ((thisdiv.width()) / 2) - ( popup_width / 2 ),
 						visibility: 'visible',
-						opacity:1
+						//opacity:1
 					});
 				}
 				
@@ -117,7 +122,7 @@ jQuery(document).ready(function($){
 					popup.css({
 						top: ((thisdiv.height()) / 2) - ( half_height_popup ),
 						visibility: 'visible',
-						opacity:1
+						//opacity:1
 					});
 				}
 				//If the top of the article is cut-off
@@ -127,7 +132,7 @@ jQuery(document).ready(function($){
 					popup.css({
 						top: (thisdiv.height()),
 						visibility: 'visible',
-						opacity:1
+						//opacity:1
 					});
 				}
 				//If the bottom of the article is cut-off
@@ -137,7 +142,7 @@ jQuery(document).ready(function($){
 					popup.css({
 						top: -popup_height,
 						visibility: 'visible',
-						opacity:1
+						//opacity:1
 					});
 				}
 			}
@@ -179,6 +184,8 @@ jQuery(document).ready(function($){
 					//make_ajax_youtube_video(youtube_video_id);
 					
 					var loop_counter = 0;
+					
+					clearInterval(positionofpopup_loop);
 					
 					//Loop
 					positionofpopup_loop = setInterval(function() {	
