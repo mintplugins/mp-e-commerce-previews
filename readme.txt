@@ -3,8 +3,8 @@ Contributors: johnstonphilip
 Donate link: http://mintplugins.com/
 Tags: message bar, header
 Requires at least: beta1.0.0.0
-Tested up to: beta1.0.1.3
-Stable tag: beta1.0.1.3
+Tested up to: beta1.0.1.9
+Stable tag: beta1.0.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
