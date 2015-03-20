@@ -186,9 +186,9 @@ function mp_ecommerce_preview_media_player_filter( $preview_output, $options_arr
 		
 		//Get video URL
 		$preview_media_player_string = get_post_meta($post_id, 'preview_media_player', true);
-		
-		//Preview output
-		if (!empty($preview_media_player_string)){
+						
+		//Preview output - only output if a media type has been passed
+		if (!empty($preview_media_player_string[0]['mp3']) || !empty($preview_media_player_string[0]['m4v']) || !empty($preview_media_player_string[0]['ogv']) || !empty($preview_media_player_string[0]['webmv'])){
 			
 			if ( isset( $options_array['popup'] ) || isset( $options_array['autoPlay'] )){
 				
@@ -199,6 +199,22 @@ function mp_ecommerce_preview_media_player_filter( $preview_output, $options_arr
 				$new_preview_output .= mp_player( $post_id, 'preview_media_player' ); 
 			}
 			
+			
+		}
+		
+		//If there is nothing returned from the mp_player, this is likely an unfinished jingle so return the default track (if there is one)
+		if ( empty( $new_preview_output ) ){
+						
+			$preview_media_player_string = apply_filters( 'mp_ecomm_preview_default_media_player_array', NULL, $post_id );
+			
+			if ( isset( $options_array['popup'] ) || isset( $options_array['autoPlay'] )){
+				
+				$new_preview_output .= mp_player( $post_id, $preview_media_player_string, array('autoPlay' => 1) ); 
+			}
+			else{
+				
+				$new_preview_output .= mp_player( $post_id, $preview_media_player_string ); 
+			}
 			
 		}
 		
